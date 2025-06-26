@@ -318,7 +318,8 @@ paths:
         **Notes**
         
         * The default sort is by order id, from lowest to highest.
-        * By default, requests sent without parameters will only return 50 orders. 
+        * By default, requests sent without parameters will only return 50 orders.
+        * If no orders match the query, the endpoint returns a 204 No Content response.
 
       tags:
         - Orders
@@ -346,6 +347,8 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/orderCollection_Resp'
+        '204':
+          description: No Content
       summary: Get All Orders
       operationId: getOrders
     post:
